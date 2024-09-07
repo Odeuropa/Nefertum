@@ -1,7 +1,7 @@
 import glob
 import os
 from xmlrpc.client import Boolean
-from flask import Flask, request
+from flask import Flask, request, make_response
 from flask_cors import CORS
 from flask_restful import Resource, Api
 import json
@@ -308,7 +308,7 @@ class AnswerJustifier(Resource):
 
 class Health(Resource):
     def get(self):
-        return "OK", 200
+        return make_response("OK", 200)
 
 
 api.add_resource(Questions, "/questions")
