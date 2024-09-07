@@ -22,5 +22,5 @@ Akinator like guesser for smells.
 1. Run the following command:
 
    ```bash
-   docker-compose up --build -d
+   docker compose up --build -d
    ```
