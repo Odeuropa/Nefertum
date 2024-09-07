@@ -306,6 +306,11 @@ class AnswerJustifier(Resource):
         return {"data": text}, 200
 
 
+class Health(Resource):
+    def get(self):
+        return "OK", 200
+
+
 api.add_resource(Questions, "/questions")
 api.add_resource(StartEmb, "/startEmb/<session_id>")
 api.add_resource(Start, "/start/<session_id>")
@@ -319,6 +324,7 @@ api.add_resource(LikelyResultsEmb, "/likely_resultsEmb/<session_id>")
 api.add_resource(LikelyResults, "/likely_results/<session_id>")
 api.add_resource(AnswerJustifier, "/answer_justifier/<session_id>")
 api.add_resource(Embeddings, "/embeddings")
+api.add_resource(Health, "/health")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
