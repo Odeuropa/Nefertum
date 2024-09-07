@@ -6,7 +6,7 @@ services:
       - FLASK_DEBUG=false
       - FLASK_APP=app/app.py
     ports:
-      - "${API_PORT-:5000}:5000"
+      - "${API_PORT:-5000}:5000"
 
   client:
     build:
@@ -16,7 +16,7 @@ services:
         NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL}
         NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY}
     ports:
-      - "${CLIENT_PORT-:3000}:3000"
+      - "${CLIENT_PORT:-3000}:3000"
     links:
       - api
     depends_on:
