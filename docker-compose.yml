@@ -2,6 +2,7 @@ services:
   api:
     build: api
     command: "flask run -h 0.0.0.0 -p 5000"
+    restart: unless-stopped
     environment:
       - FLASK_DEBUG=false
       - FLASK_APP=app/app.py
@@ -15,6 +16,7 @@ services:
         NEXT_PUBLIC_API_ENDPOINT: ${NEXT_PUBLIC_API_ENDPOINT}
         NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL}
         NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+    restart: unless-stopped
     ports:
       - "${CLIENT_PORT:-3000}:3000"
     links:
